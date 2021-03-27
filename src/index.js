@@ -30,11 +30,15 @@ function PeopleList(props) {
   const listItems = arr.map((val, index) => <li key={index}> {val}</li>);
   return <ul>{listItems}</ul>;
 }
-const contacts = ["saz", "seenu", "jain"];
-const ell = (
+function ContactManager(props){
+  const [contacts, setContacts] = useState(props.data);
+return(
   <div>
     <AddPersonForm />
     <PeopleList data={contacts} />
   </div>
 );
-ReactDOM.render(ell, document.getElementById("root"));
+}
+const contacts = ["saz", "seenu", "jain"];
+
+ReactDOM.render(<ContactManager data={contacts} />, document.getElementById("root"));
